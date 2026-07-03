@@ -213,10 +213,15 @@ section { padding: 5rem 0; }
 
 .member-image {
   width: 100%;
-  height: 200px;
+  /* Force every photo into the same portrait frame regardless of its native
+     dimensions (some are landscape, some tall portrait). */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  /* Bias the crop toward the top so faces aren't sliced off. */
+  object-position: 50% 25%;
   border-radius: 4px;
   margin-bottom: 1rem;
+  background: var(--border);
 }
 
 .member-name {

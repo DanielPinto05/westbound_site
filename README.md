@@ -20,6 +20,18 @@ python3 -m http.server 8000
 
 - **Shows:** edit `SHOWS` in `js/shows.js`. Past dates hide automatically.
 - **Media:** replace placeholder `.svg`/video files in `assets/` with real ones.
+- **Hero video:** the homepage plays `assets/hero-720.mp4` — a compressed, audio-free
+  720p loop. Don't ship raw phone footage (it can be 50+ MB). Compress a new clip with:
+
+  ```bash
+  # 720p H.264, no audio, faststart so it streams progressively
+  ffmpeg -i source.mov -vf "scale=1280:-2" -an \
+    -c:v libx264 -crf 24 -preset veryslow -pix_fmt yuv420p \
+    -movflags +faststart assets/hero-720.mp4
+
+  # first-frame poster (shows instantly while the video loads)
+  ffmpeg -ss 1 -i source.mov -frames:v 1 -vf "scale=1920:-2" assets/hero-poster.jpg
+  ```
 - **Merch:** products live in `merch.html` as Snipcart `data-item-*` attributes.
 
 ## Deploy

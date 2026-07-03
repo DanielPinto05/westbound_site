@@ -72,18 +72,19 @@
   <!-- ─── Hero ─────────────────────────────────────────────────── -->
   <section class="hero" aria-label="Hero">
     <!--
-      TODO: Replace assets/hero.mp4 (and optionally assets/hero.webm) with real footage.
-      Keep clips short (5–15s), compressed (< 5 MB), no audio track.
-      The poster image (assets/band-photo.svg) shows before the video loads.
+      hero-720.mp4 is a compressed 720p, audio-free H.264 loop (~4 MB, was a 58 MB 4K .MOV).
+      hero-poster.jpg is the first frame — it shows instantly while the video streams in.
+      To swap in new footage: keep it short (5–15s), no audio, and re-run the ffmpeg
+      compression step (see README) so it stays small.
     -->
     <video
       class="hero-video"
       autoplay muted loop playsinline
-      preload="metadata"
-      poster="assets/band-photo.svg"
+      preload="auto"
+      poster="assets/hero-poster.jpg"
       aria-hidden="true"
     >
-      <source src="assets/video.MOV" type="video/quicktime" />
+      <source src="assets/hero-720.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
