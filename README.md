@@ -24,19 +24,16 @@ Search all HTML files for `TODO: real link` and replace the `href="#"` with:
 1. Create a free account at [snipcart.com](https://snipcart.com) and connect Stripe
 2. **Set default currency to CAD:** Snipcart dashboard → Settings → Regional → Default currency → `CAD`
    (prices in the HTML are just numbers — the currency symbol/code comes from this setting)
-3. In the dashboard, grab your **Public Test API Key** (for dev) or **Public Live API Key** (for launch)
-4. In all three HTML files, replace `YOUR_PUBLIC_SNIPCART_API_KEY_HERE` with your key
-5. Update the product's `data-item-url` to your live Netlify URL, e.g.:
-   `data-item-url="https://westboundband.netlify.app/merch.html"`
+3. The **Public Live API Key** is already set in the `#snipcart` div of all three HTML files.
+   (Swap to a Public Test key if you want to test without real charges.)
 
-### SEO — update the domain
-The site ships with SEO tags, `robots.txt`, and `sitemap.xml` using the placeholder domain
-`https://westboundband.netlify.app`. Once you know your real Netlify (or custom) domain,
-find-and-replace that string everywhere:
+### SEO / domain
+The site is configured for the domain **`https://westbound-band.ca`** across the SEO tags,
+`robots.txt`, and `sitemap.xml`. If the domain ever changes, find-and-replace it everywhere:
 ```bash
-grep -rl "westboundband.netlify.app" . | xargs sed -i '' 's#westboundband.netlify.app#YOUR-REAL-DOMAIN#g'
+grep -rl "westbound-band.ca" . | xargs sed -i '' 's#westbound-band.ca#NEW-DOMAIN#g'
 ```
-Then submit `sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
+After launch, submit `sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
 The social share image is `assets/og-image.svg` — for best results across platforms, replace it
 with a 1200×630 **JPG/PNG** (some scrapers don't render SVG) and update the `og:image` / `twitter:image` URLs.
 

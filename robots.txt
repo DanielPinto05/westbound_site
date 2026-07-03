@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# TODO: update domain after Netlify deploy (see README)
-Sitemap: https://westboundband.netlify.app/sitemap.xml
+# Sitemap location
+Sitemap: https://westbound-band.ca/sitemap.xml
