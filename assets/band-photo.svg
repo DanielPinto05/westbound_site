@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <rect width="1200" height="675" fill="#111"/>
+  <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle"
+    font-family="sans-serif" font-size="18" fill="#333">
+    TODO: Replace with band photo (band-photo.jpg or hero.mp4)
+  </text>
+  <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+    font-family="sans-serif" font-size="14" fill="#222">
+    Recommended: 1920×1080px video or image
+  </text>
+</svg>

@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Netlify CLI
+.netlify/
+
+# Environment / secrets (do not commit)
+.env
+.env.*
+*.local
+
+# Dependencies (not used now, but safe to ignore)
+node_modules/
+
+# OS / misc
+*.tmp

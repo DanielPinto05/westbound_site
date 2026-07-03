@@ -1,0 +1,47 @@
+[build]
+  publish = "."
+
+# Netlify serves everything over its global CDN with Brotli/gzip compression
+# and HTTP/2 automatically. The headers below add long-lived caching for static
+# assets and sane security defaults.
+
+# ─── Security headers (all pages) ─────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# ─── HTML: always revalidate so content updates show immediately ──
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ─── CSS / JS: cache long, they change rarely ─────────────────────
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# ─── Images & video: cache aggressively (immutable) ───────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+# ─── Pretty URLs: allow /shows instead of /shows.html ─────────────
+[[redirects]]
+  from = "/shows"
+  to = "/shows.html"
+  status = 200
+[[redirects]]
+  from = "/merch"
+  to = "/merch.html"
+  status = 200
